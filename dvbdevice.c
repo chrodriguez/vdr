@@ -1291,7 +1291,7 @@ bool cDvbDevice::QueryDeliverySystems(int fd_frontend)
                esyslog("ERROR: too many delivery systems on frontend %d/%d", adapter, frontend);
                break;
                }
-            deliverySystems[numDeliverySystems++] = Frontend[0].u.buffer.data[i];
+            deliverySystems[numDeliverySystems++] = Frontend[0].u.buffer.data[i] == SYS_ISDBT ? SYS_DVBT : Frontend[0].u.buffer.data[i];
             }
         LegacyMode = false;
         }
